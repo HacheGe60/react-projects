@@ -1,7 +1,21 @@
 import React from 'react';
 import Tour from './Tour';
-const Tours = () => {
-  return <h2>tours component</h2>;
+const Tours = ({ tours, removeTour }) => {
+	return (
+		<section>
+			<h2 className='title'>our tours</h2>
+			<div className='underline'></div>
+			{tours.map((tour) => {
+				return (
+					<Tour
+						key={tour.id}
+						{...tour}
+						removeTour={removeTour}
+					/>
+				);
+			})}
+		</section>
+	);
 };
 
 export default Tours;
